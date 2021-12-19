@@ -7,12 +7,9 @@
     <body>
         deneme 1
         <script>
-            const x = 2;
-            var userscore = x;
-            const y = 0;
-            const computerscore = y;
+            
             const paracomputer = ["rock", "paper", "scissors"];
-
+function round() {
 function computerPlay() {
         const computerSelection = paracomputer[Math.floor(Math.random()*paracomputer.length)];
 
@@ -59,20 +56,36 @@ console.log(playerSelection);
 console.log(playRound(playerSelection, computerSelection));
 console.log(computerSelection);
 
-function game() {
+function game(userscore, computerscore) {
+    
     if (
-        playRound(playerSelection, computerSelection) == 'rock beats scissors, you won 2 points!') {
-        console.log(`player = ${x + 2}, computer = ${y}`);    
+        playRound(playerSelection, computerSelection) == 'rock beats scissors, you won 2 points!' || playRound(playerSelection, computerSelection) == 'paper beats rock, you won 2 points!' || playRound(playerSelection, computerSelection) == 'scissors beat paper, you won 2 points!') {
+        let userscore = x + 2;
+        let computerscore = y;  
+        console.log(`player: ${userscore}, computer: ${computerscore}`); 
     } else if (
-        playRound(playerSelection, computerSelection) == 'paper beats rock, computer won 2 points!') {
-        console.log(`player = ${x}, computer = ${y + 2}`);    
+        playRound(playerSelection, computerSelection) == 'paper beats rock, computer won 2 points!' || playRound(playerSelection, computerSelection) == 'scissors beat paper, computer won 2 points!' || playRound(playerSelection, computerSelection) == 'rock beats scissors, computer won 2 points!') {
+        let userscore = x;
+        let computerscore = y + 2;
+        console.log(`player = ${userscore}, computer = ${computerscore}`);    
     } else {
-        console.log('player won!');
+        let userscore = x + 1;
+        let computerscore = y + 1;
+        console.log(`player = ${userscore}, computer = ${computerscore}`);
     }
-        
-    }
-console.log(game());
 
+    }
+let x = 0;
+let y = 0;     
+let userscore = x;
+let computerscore = y;
+console.log(game(userscore, computerscore));
+}
+console.log(round());
+console.log(round());
+console.log(round());
+console.log(round());
+console.log(round());
         </script>
 
     </body>
