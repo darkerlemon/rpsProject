@@ -5,75 +5,73 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        deneme 1
         <script>
-            
-            const paracomputer = ["rock", "paper", "scissors"];
-function round(userscore, computerscore) {
+let x = 0;
+let y = 0;
+const paracomputer = ["rock", "paper", "scissors"];
+function round() {
 function computerPlay() {
-        const computerSelection = paracomputer[Math.floor(Math.random()*paracomputer.length)];
-
-        return computerSelection ;            
-    }   
+    const computerSelection = paracomputer[Math.floor(Math.random()*paracomputer.length)];
+    return computerSelection ;            
+} 
+    
 const input = prompt('rock, paper or scissors?').toLowerCase();
 function playRound(playerSelection, computerSelection) {
-    let x = 0;
-    let y = 0; 
+
+function incrementx(){
+
+  x++;
+  return x;}
+
+
+function incrementy(){
+
+  y++;
+  return y;
+}
     let result;
       if (
         input == 'rock' && computerSelection == 'scissors') {
-        let userscore = x + 2;
-        let computerscore = y;   
-        result = `rock beats scissors, you won 2 points!
-player: ${userscore}, computer: ${computerscore}`;
+            incrementx();
+            result = `rock beats scissors, you won 1 point!
+player: ${x}, computer: ${y}`;
     } else if (
         input == 'rock' && computerSelection == 'paper') {
-        let userscore = x;
-        let computerscore = y + 2; 
-        result = `paper beats rock, computer won 2 points!
-player: ${userscore}, computer: ${computerscore}`;
+        incrementy();
+            result = `paper beats rock, computer won 1 point!
+player: ${x}, computer: ${y}`;
     } else if (
-        input == 'paper' && computerSelection == 'rock') {
-        let userscore = x + 2;
-        let computerscore = y;   
-        result = `paper beats rock, you won 2 points!
-player: ${userscore}, computer: ${computerscore}`; 
+        input == 'paper' && computerSelection == 'rock') {   
+        incrementx();
+            result = `paper beats rock, you won 1 point!
+player: ${x}, computer: ${y}`; 
     } else if (
         input == 'paper' && computerSelection == 'scissors') {
-        let userscore = x;
-        let computerscore = y + 2;
-        result = `scissors beat paper, computer won 2 points!
-player: ${userscore}, computer:  ${computerscore}`;
+        incrementy();
+            result = `scissors beat paper, computer won 1 point!
+player: ${x}, computer:  ${y}`;
     } else if (
-        input == 'scissors' && computerSelection == 'paper') {
-        let userscore = x + 2;
-        let computerscore = y;          
-        result = `scissors beat paper, you won 2 points!   
-player: ${userscore}, computer: ${computerscore}`;
+        input == 'scissors' && computerSelection == 'paper') {       
+        incrementx();
+            result = `scissors beat paper, you won 1 point!   
+player: ${x}, computer: ${y}`;
     } else if (
         input == 'scissors' && computerSelection == 'rock') {
-        let userscore = x;
-        let computerscore = y + 2;
-        result = `rock beats scissors, computer won 2 points!
-player: ${userscore}, computer: ${computerscore}`;    
+        incrementy();
+            result = `rock beats scissors, computer won 1 point!
+player: ${x}, computer: ${y}`;   
     } else if (
         input == 'rock' && computerSelection == 'rock') {
-        let userscore = x + 1;
-        let computerscore = y + 1;
-        result = `it is a draw, both won 1 points!
-player: ${userscore}, computer: ${computerscore}`; 
+        result = `it is a draw!
+player: ${x}, computer: ${y}`; 
     } else if (
         input == 'paper' && computerSelection == 'paper') {
-        let userscore = x + 1;
-        let computerscore = y + 1;
-        result = `it is a draw, both won 1 points!
-player: ${userscore}, computer: ${computerscore}`;   
+        result = `it is a draw!
+player: ${x}, computer: ${y}`;   
     } else if (
         input == 'scissors' && computerSelection == 'scissors') {
-        let userscore = x + 1;
-        let computerscore = y + 1; 
-        result = `it is a draw, both won 1 points! 
-player: ${userscore}, computer: ${computerscore}`;   
+        result = `it is a draw! 
+player: ${x}, computer: ${y}`;   
     } else {
         result = 'type rock, paper or scissors';
     }
@@ -85,13 +83,25 @@ const computerSelection = computerPlay();
 console.log(`player: ${playerSelection}`);
 console.log(`computer: ${computerSelection}`);
 console.log(playRound(playerSelection, computerSelection));
-
 }
 console.log(round());
 console.log(round());
 console.log(round());
 console.log(round());
 console.log(round());
+
+function game() {
+    let result;
+    if (x > y) {
+        result = 'congratulations, you won!';
+    } else if (x < y) {
+        result = 'computer won, better luck next time!';
+    } else { 
+        result = 'it\'s a draw, how about another round?';   
+}
+    return result;
+}
+console.log(game());
         </script>
 
     </body>
